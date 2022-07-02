@@ -11,7 +11,7 @@ const ProductScreen = ({match}) => {
     useEffect(() => {
       const fetchProduct = async () => {
         try {
-          const res = await axios.get(`/product/${params.id}`)
+          const res = await axios.get(`/api/products/${params.id}`)
           setProduct(res.data)
         } catch (error) {
           console.log(error);
@@ -22,7 +22,7 @@ const ProductScreen = ({match}) => {
     console.log(product)
   return (
     <>
-      <Link className='btn btn-dark ' to={'/'}>
+      <Link className='btn btn-dark ' style={{marginBottom:"10px"}} to={'/'}>
         Go Back
       </Link>
        <Row>

@@ -12,7 +12,7 @@ const HomeScreen = () => {
     console.log('useEffect hook');
     const fetchProduct = async () => {
       try {
-        const res = await axios.get('/products')
+        const res = await axios.get('/api/products')
         setProducts(res.data)
       } catch (error) {
         console.log(error);
