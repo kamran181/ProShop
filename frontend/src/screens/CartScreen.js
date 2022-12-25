@@ -10,13 +10,13 @@ const CartScreen = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams(); 
     const qty = searchParams.get("qty");
-    console.log(qty)
     const dispatch = useDispatch()
 
     const cart = useSelector((state) => state.cart )
     const { cartItems } = cart
 
     useEffect(() => {
+      console.log(id);
       if(id){
         dispatch(addToCart(id, qty))
       }

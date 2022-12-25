@@ -1,6 +1,7 @@
 import React from 'react'
 import {Row, Col, Container} from 'react-bootstrap'
 import axios from 'axios'
+import {useParams} from 'react-router-dom'
 import Product from '../Components/Product'
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from 'react'
@@ -10,15 +11,17 @@ import Messages from '../Components/Messages'
 
 
 const HomeScreen = () => {
-
+  const params = useParams();
+  const keyword = params.keyword
+   
   const dispatch = useDispatch()
 
   const productList = useSelector(state => state.productList)
   const {loading, error, products} = productList
    
   useEffect(() => {
-     dispatch(listProduct())
-  }, [dispatch]);
+     dispatch(listProduct(keyword))
+  }, [dispatch, keyword]);
 
   return (
     <> 
